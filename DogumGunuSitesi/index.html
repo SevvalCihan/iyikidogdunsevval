@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Şevval ❤️</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #08070b;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           ARKA PLAN
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    #4b1838 0%,
+                    #21101c 35%,
+                    #08070b 75%
+                );
+        }
+
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+
+            background: #ff4f81;
+            filter: blur(110px);
+            opacity: 0.15;
+
+            animation:
+                floatingGlow 8s infinite alternate ease-in-out;
+        }
+
+        .glow:nth-child(1) {
+            top: 5%;
+            left: -120px;
+        }
+
+        .glow:nth-child(2) {
+            bottom: 5%;
+            right: -120px;
+            animation-delay: 2s;
+        }
+
+        @keyframes floatingGlow {
+
+            from {
+                transform: translate(0, 0) scale(1);
+            }
+
+            to {
+                transform: translate(90px, -50px) scale(1.3);
+            }
+
+        }
+
+        /* =========================
+           PARÇACIKLAR
+        ========================= */
+
+        .particles {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .particle {
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            border-radius: 50%;
+
+            background: white;
+
+            opacity: 0;
+
+            animation:
+                sparkle 5s infinite;
+        }
+
+        @keyframes sparkle {
+
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0);
+            }
+
+            20% {
+                opacity: 0.8;
+            }
+
+            80% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-150px) scale(1);
+            }
+
+        }
+
+        /* =========================
+           MÜZİK BUTONU
+        ========================= */
+
+        #musicButton {
+            position: fixed;
+
+            top: 18px;
+            right: 18px;
+
+            z-index: 9998;
+
+            border: 1px solid rgba(255,255,255,0.15);
+
+            background: rgba(20,15,22,0.75);
+
+            backdrop-filter: blur(12px);
+
+            color: white;
+
+            padding: 11px 15px;
+
+            border-radius: 30px;
+
+            font-size: 13px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 30px rgba(0,0,0,0.3);
+
+            transition:
+                transform 0.25s,
+                background 0.25s,
+                box-shadow 0.25s;
+        }
+
+        #musicButton:hover {
+            transform: scale(1.05);
+
+            background:
+                rgba(255,79,129,0.25);
+
+            box-shadow:
+                0 8px 35px rgba(255,79,129,0.2);
+        }
+
+        #musicButton:active {
+            transform: scale(0.92);
+        }
+
+        #musicButton.playing {
+            background:
+                rgba(255,79,129,0.3);
+
+            box-shadow:
+                0 0 25px rgba(255,79,129,0.25);
+        }
+
+        /* =========================
+           AÇILIŞ
+        ========================= */
+
+        .hero {
+            min-height: 100svh;
+            width: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            position: relative;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 650px;
+
+            animation:
+                heroAppear 1.5s ease forwards;
+        }
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+                transform: translateY(45px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+        /* =========================
+           KALP
+        ========================= */
+
+        .big-heart {
+            font-size: 65px;
+
+            display: inline-block;
+
+            margin-bottom: 25px;
+
+            animation:
+                heartbeat 1.5s infinite,
+                heartGlow 2s infinite alternate;
+        }
+
+        @keyframes heartbeat {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+        }
+
+        @keyframes heartGlow {
+
+            from {
+                filter:
+                    drop-shadow(
+                        0 0 5px rgba(255,79,129,0.3)
+                    );
+            }
+
+            to {
+                filter:
+                    drop-shadow(
+                        0 0 30px rgba(255,79,129,0.9)
+                    );
+            }
+
+        }
+
+        /* =========================
+           BAŞLIK
+        ========================= */
+
+        .hero h1 {
+            font-size:
+                clamp(50px, 14vw, 95px);
+
+            line-height: 1;
+
+            margin-bottom: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #ff9abb,
+                    #ffffff
+                );
+
+            background-size: 200%;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                titleGradient 4s infinite linear;
+        }
+
+        @keyframes titleGradient {
+
+            from {
+                background-position: 0%;
+            }
+
+            to {
+                background-position: 200%;
+            }
+
+        }
+
+        .subtitle {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #d8d8d8;
+        }
+
+        /* =========================
+           BUTON
+        ========================= */
+
+        .button {
+            display: inline-block;
+
+            margin-top: 35px;
+
+            padding: 16px 32px;
+
+            border-radius: 50px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f81,
+                    #c92d68
+                );
+
+            box-shadow:
+                0 10px 40px
+                rgba(255,79,129,0.3);
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .button::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -120%;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.45),
+                    transparent
+                );
+
+            animation:
+                buttonShine 3s infinite;
+        }
+
+        @keyframes buttonShine {
+
+            0% {
+                left: -120%;
+            }
+
+            40%, 100% {
+                left: 120%;
+            }
+
+        }
+
+        .button:active {
+            transform: scale(0.94);
+        }
+
+        /* =========================
+           AŞAĞI OK
+        ========================= */
+
+        .scroll-down {
+            position: absolute;
+
+            bottom: 25px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            font-size: 13px;
+
+            color: #aaa;
+
+            animation:
+                scrollBounce 2s infinite;
+        }
+
+        @keyframes scrollBounce {
+
+            0%, 100% {
+                transform:
+                    translate(-50%, 0);
+            }
+
+            50% {
+                transform:
+                    translate(-50%, 10px);
+            }
+
+        }
+
+        /* =========================
+           BÖLÜMLER
+        ========================= */
+
+        section:not(.hero) {
+            padding: 90px 18px;
+        }
+
+        .section-title {
+            text-align: center;
+
+            font-size: 32px;
+
+            line-height: 1.2;
+
+            margin-bottom: 40px;
+        }
+
+        /* =========================
+           FOTOĞRAFLAR
+        ========================= */
+
+        .gallery {
+            width: 100%;
+            max-width: 750px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+        }
+
+        .photo {
+            width: 100%;
+
+            aspect-ratio: 1 / 1;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            background: #19161e;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            position: relative;
+
+            opacity: 0;
+
+            transform:
+                translateY(45px)
+                scale(0.96);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+
+            cursor: pointer;
+        }
+
+        .photo.show {
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease;
+        }
+
+        .photo:hover img {
+            transform: scale(1.08);
+        }
+
+        .photo::after {
+            content: "❤️";
+
+            position: absolute;
+
+            inset: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 35px;
+
+            background:
+                rgba(255,79,129,0.18);
+
+            opacity: 0;
+
+            transition: 0.3s;
+
+            pointer-events: none;
+        }
+
+        .photo:active::after {
+            opacity: 1;
+        }
+
+        /* =========================
+           VİDEOLAR
+        ========================= */
+
+        .videos {
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: auto;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 28px;
+        }
+
+        .video-card {
+            width: 100%;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            background: #141219;
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.35);
+
+            opacity: 0;
+
+            transform:
+                translateY(50px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .video-card.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .video-card video {
+            width: 100%;
+
+            display: block;
+
+            max-height: 75vh;
+
+            background: black;
+        }
+
+        .video-info {
+            padding:
+                17px 18px 20px;
+
+            text-align: center;
+        }
+
+        .video-info h3 {
+            font-size: 19px;
+
+            margin-bottom: 7px;
+        }
+
+        .video-info p {
+            font-size: 14px;
+
+            color: #999;
+
+            line-height: 1.5;
+        }
+
+        /* =========================
+           MEKTUP
+        ========================= */
+
+        .letter {
+            width: 100%;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            padding: 28px;
+
+            border-radius: 22px;
+
+            background:
+                rgba(255,255,255,0.04);
+
+            border:
+                1px solid rgba(255,255,255,0.08);
+
+            line-height: 1.9;
+
+            font-size: 17px;
+
+            color: #e4e4e4;
+
+            backdrop-filter: blur(10px);
+
+            opacity: 0;
+
+            transform:
+                translateY(45px);
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+        }
+
+        .letter.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+        .letter p {
+            margin-bottom: 4px;
+        }
+
+        /* =========================
+           FİNAL
+        ========================= */
+
+        .final {
+            min-height: 75vh;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+        }
+
+        .final-content {
+            animation:
+                finalFloat 4s infinite ease-in-out;
+        }
+
+        @keyframes finalFloat {
+
+            0%, 100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px);
+            }
+
+        }
+
+        .final h2 {
+            font-size:
+                clamp(40px, 11vw, 75px);
+
+            line-height: 1.05;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #fff,
+                    #ff77a2,
+                    #fff
+                );
+
+            background-size: 200%;
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            animation:
+                titleGradient 4s infinite;
+        }
+
+        .final p {
+            margin-top: 20px;
+
+            color: #aaa;
+
+            font-size: 17px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding:
+                40px 20px;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOTOĞRAF TAM EKRAN
+        ========================= */
+
+        #photoViewer {
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(0,0,0,0.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition:
+                0.35s;
+
+            z-index: 9999;
+        }
+
+        #photoViewer.active {
+            opacity: 1;
+
+            visibility: visible;
+        }
+
+        #viewerImage {
+            max-width: 100%;
+
+            max-height: 88vh;
+
+            width: auto;
+
+            height: auto;
+
+            object-fit: contain;
+
+            border-radius: 16px;
+
+            transform:
+                scale(0.8);
+
+            transition:
+                transform 0.35s ease;
+
+            box-shadow:
+                0 20px 80px
+                rgba(0,0,0,0.6);
+        }
+
+        #photoViewer.active #viewerImage {
+            transform:
+                scale(1);
+        }
+
+        #closeViewer {
+            position: absolute;
+
+            top: 15px;
+            right: 22px;
+
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 50%;
+
+            background:
+                rgba(255,255,255,0.1);
+
+            color: white;
+
+            font-size: 34px;
+
+            cursor: pointer;
+
+            z-index: 2;
+
+            transition: 0.25s;
+        }
+
+        #closeViewer:hover {
+            background:
+                rgba(255,79,129,0.5);
+
+            transform:
+                rotate(90deg);
+        }
+
+        /* =========================
+           UÇAN KALPLER
+        ========================= */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            z-index: 50;
+
+            animation:
+                floatingHeart
+                4s
+                linear
+                forwards;
+        }
+
+        @keyframes floatingHeart {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(0)
+                    scale(0.5)
+                    rotate(0deg);
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+
+                transform:
+                    translateY(-110vh)
+                    scale(1.4)
+                    rotate(25deg);
+            }
+
+        }
+
+        /* =========================
+           MÜZİK ÇALARKEN NOTALAR
+        ========================= */
+
+        .music-note {
+            position: fixed;
+
+            bottom: -30px;
+
+            pointer-events: none;
+
+            z-index: 60;
+
+            opacity: 0;
+
+            animation:
+                musicNoteFloat 4s linear forwards;
+        }
+
+        @keyframes musicNoteFloat {
+
+            0% {
+                opacity: 0;
+
+                transform:
+                    translateY(0)
+                    scale(0.7)
+                    rotate(-10deg);
+            }
+
+            15% {
+                opacity: 0.8;
+            }
+
+            100% {
+                opacity: 0;
+
+                transform:
+                    translateY(-100vh)
+                    scale(1.2)
+                    rotate(15deg);
+            }
+
+        }
+
+        /* =========================
+           PC
+        ========================= */
+
+        @media (min-width: 768px) {
+
+            section:not(.hero) {
+                padding:
+                    120px 40px;
+            }
+
+            .gallery {
+                grid-template-columns:
+                    repeat(3, 1fr);
+            }
+
+            .videos {
+                display: grid;
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                max-width: 1100px;
+            }
+
+            .video-card:first-child {
+                grid-column:
+                    1 / -1;
+            }
+
+            .letter {
+                padding: 40px;
+
+                font-size: 18px;
+            }
+
+        }
+
+        @media (min-width: 1100px) {
+
+            .gallery {
+                grid-template-columns:
+                    repeat(4, 1fr);
+            }
+
+        }
+
+        /* =========================
+           TELEFON
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            #musicButton {
+                top: 14px;
+                right: 14px;
+
+                padding:
+                    10px 13px;
+
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .big-heart {
+                font-size: 58px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 29px;
+            }
+
+            section:not(.hero) {
+                padding:
+                    75px 15px;
+            }
+
+            .letter {
+                padding: 23px;
+
+                font-size: 16px;
+            }
+
+            .video-card {
+                border-radius: 18px;
+            }
+
+            .video-info {
+                padding:
+                    14px 15px 16px;
+            }
+
+            .video-info h3 {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- =========================
+         MÜZİK
+    ========================= -->
+
+    <audio
+        id="backgroundMusic"
+        loop
+        preload="auto">
+
+        <source
+            src="muzik.mp3"
+            type="audio/mpeg">
+
+    </audio>
+
+
+    <button
+        id="musicButton"
+        type="button">
+
+        🎵 Müziği Başlat
+
+    </button>
+
+
+    <!-- =========================
+         ARKA PLAN
+    ========================= -->
+
+    <div class="background">
+
+        <div class="glow"></div>
+        <div class="glow"></div>
+
+    </div>
+
+
+    <!-- PARÇACIKLAR -->
+
+    <div
+        class="particles"
+        id="particles">
+    </div>
+
+
+    <!-- =========================
+         AÇILIŞ
+    ========================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h1>
+                Şevval
+            </h1>
+
+            <p class="subtitle">
+                Bugün senin günün... ✨
+            </p>
+
+            <a
+                href="#galeri"
+                class="button"
+                id="surpriseButton">
+
+                Sürprize Başla ❤️
+
+            </a>
+
+        </div>
+
+
+        <div class="scroll-down">
+
+            ↓ aşağı kaydır ↓
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOTOĞRAFLAR
+    ========================= -->
+
+    <section id="galeri">
+
+        <h2 class="section-title">
+            📸 Güzel Anılar
+        </h2>
+
+
+        <div class="gallery">
+
+            <div class="photo">
+                <img
+                    src="1.JPG"
+                    alt="Şevval - Anı 1">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="2.JPG"
+                    alt="Şevval - Anı 2">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="3.JPG"
+                    alt="Şevval - Anı 3">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="4.JPG"
+                    alt="Şevval - Anı 4">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="5.JPG"
+                    alt="Şevval - Anı 5">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="6.JPG"
+                    alt="Şevval - Anı 6">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="7.JPG"
+                    alt="Şevval - Anı 7">
+            </div>
+
+            <div class="photo">
+                <img
+                    src="8.JPG"
+                    alt="Şevval - Anı 8">
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         VİDEOLAR
+    ========================= -->
+
+    <section id="videolar">
+
+        <h2 class="section-title">
+            🎬 Bizden Kalanlar
+        </h2>
+
+
+        <div class="videos">
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid1.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        ❤️ Güzel Bir An
+                    </h3>
+
+                    <p>
+                        Birlikte geçirdiğimiz güzel anlardan biri...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid2.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        💕 Güzel Hatıralar
+                    </h3>
+
+                    <p>
+                        Unutulmayacak anılar...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid3.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        ✨ Bir Başka Anı
+                    </h3>
+
+                    <p>
+                        Seninle geçen güzel zamanlardan...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid4.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        💗 Birlikte
+                    </h3>
+
+                    <p>
+                        Her anın ayrı bir güzelliği var.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid5.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        💖 İyi bir manzara
+                    </h3>
+
+                    <p>
+                        Daha nice güzel anılara...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid6.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        💞 Birlikte Geçen Zaman
+                    </h3>
+
+                    <p>
+                        Güzel anılardan bir başka parça...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="video-card">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata">
+
+                    <source
+                        src="vid7.mp4"
+                        type="video/mp4">
+
+                </video>
+
+                <div class="video-info">
+
+                    <h3>
+                        💕 Stickerlar Gitti
+                    </h3>
+
+                    <p>
+                        Daha nice güzel anılara...
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MEKTUP
+    ========================= -->
+
+    <section>
+
+        <h2 class="section-title">
+            💌 Sana...
+        </h2>
+
+
+        <div class="letter">
+
+            <p>
+                Hayatımın anlamı iyiki doğdun
+                iyiki varsın iyiki benimlesin
+                ve en önemlisi iyiki BENİMSİN
+            </p>
+
+            <br>
+
+            <p>
+                seni çok seviyorum yaptığım
+                hiçbirşey senin değerin kadar değil
+                ama idare et 😅
+            </p>
+
+            <br>
+
+            <p>
+                inşallah hep beraber oluruz
+                Değerlim 💍
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FİNAL
+    ========================= -->
+
+    <section class="final">
+
+        <div class="final-content">
+
+            <div class="big-heart">
+                ❤️
+            </div>
+
+            <h2>
+                İyi ki doğdun<br>
+                Şevval'im
+            </h2>
+
+            <p>
+                Nice güzel BİZLİ anılara... ✨
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        ❤️ Senin için hazırlandı.
+
+    </footer>
+
+
+    <!-- =========================
+         FOTOĞRAF TAM EKRAN
+    ========================= -->
+
+    <div id="photoViewer">
+
+        <span id="closeViewer">
+            ×
+        </span>
+
+        <img
+            id="viewerImage"
+            src=""
+            alt="Büyük fotoğraf">
+
+    </div>
+
+
+    <script>
+
+        /* =========================
+           MÜZİK
+        ========================= */
+
+        const music =
+            document.getElementById(
+                "backgroundMusic"
+            );
+
+
+        const musicButton =
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        let musicNotesTimer = null;
+
+
+        function updateMusicButton() {
+
+            if (!music.paused) {
+
+                musicButton.innerHTML =
+                    "🔊 Müziği Kapat";
+
+                musicButton.classList.add(
+                    "playing"
+                );
+
+            } else {
+
+                musicButton.innerHTML =
+                    "🎵 Müziği Başlat";
+
+                musicButton.classList.remove(
+                    "playing"
+                );
+
+            }
+
+        }
+
+
+        async function startMusic() {
+
+            try {
+
+                /* Ses seviyesini ayarla */
+                music.volume = 0.7;
+
+                /* Müziği başlat */
+                await music.play();
+
+                updateMusicButton();
+
+                startMusicNotes();
+
+            } catch (error) {
+
+                console.log(
+                    "Müzik başlatılamadı:",
+                    error
+                );
+
+            }
+
+        }
+
+
+        function stopMusic() {
+
+            music.pause();
+
+            updateMusicButton();
+
+            stopMusicNotes();
+
+        }
+
+
+        musicButton.addEventListener(
+            "click",
+            () => {
+
+                if (music.paused) {
+
+                    startMusic();
+
+                } else {
+
+                    stopMusic();
+
+                }
+
+            }
+        );
+
+
+        music.addEventListener(
+            "play",
+            updateMusicButton
+        );
+
+
+        music.addEventListener(
+            "pause",
+            updateMusicButton
+        );
+
+
+        /* =========================
+           MÜZİK NOTALARI
+        ========================= */
+
+        function createMusicNote() {
+
+            if (music.paused) {
+                return;
+            }
+
+            const note =
+                document.createElement(
+                    "div"
+                );
+
+            note.classList.add(
+                "music-note"
+            );
+
+            const notes = [
+                "♪",
+                "♫",
+                "♬",
+                "🎵"
+            ];
+
+            note.innerText =
+                notes[
+                    Math.floor(
+                        Math.random() *
+                        notes.length
+                    )
+                ];
+
+            note.style.left =
+                Math.random() * 100 +
+                "vw";
+
+            note.style.fontSize =
+                (
+                    16 +
+                    Math.random() * 15
+                ) +
+                "px";
+
+            note.style.animationDuration =
+                (
+                    3 +
+                    Math.random() * 2
+                ) +
+                "s";
+
+            document.body.appendChild(
+                note
+            );
+
+            setTimeout(
+                () => {
+                    note.remove();
+                },
+                5500
+            );
+
+        }
+
+
+        function startMusicNotes() {
+
+            if (musicNotesTimer) {
+                return;
+            }
+
+            musicNotesTimer =
+                setInterval(
+                    createMusicNote,
+                    1300
+                );
+
+        }
+
+
+        function stopMusicNotes() {
+
+            clearInterval(
+                musicNotesTimer
+            );
+
+            musicNotesTimer = null;
+
+        }
+
+
+        /* =========================
+           PARÇACIKLAR
+        ========================= */
+
+        const particles =
+            document.getElementById(
+                "particles"
+            );
+
+
+        for (
+            let i = 0;
+            i < 40;
+            i++
+        ) {
+
+            const particle =
+                document.createElement(
+                    "div"
+                );
+
+            particle.classList.add(
+                "particle"
+            );
+
+            particle.style.left =
+                Math.random() * 100 +
+                "%";
+
+            particle.style.top =
+                Math.random() * 100 +
+                "%";
+
+            particle.style.animationDelay =
+                Math.random() * 5 +
+                "s";
+
+            particle.style.animationDuration =
+                (
+                    3 +
+                    Math.random() * 4
+                ) +
+                "s";
+
+            particles.appendChild(
+                particle
+            );
+
+        }
+
+
+        /* =========================
+           SCROLL ANİMASYONLARI
+        ========================= */
+
+        const animatedElements =
+            document.querySelectorAll(
+                ".photo, .video-card, .letter"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target.classList.add(
+                                    "show"
+                                );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        animatedElements.forEach(
+            element => {
+
+                observer.observe(
+                    element
+                );
+
+            }
+        );
+
+
+        /* =========================
+           FOTOĞRAF TAM EKRAN
+        ========================= */
+
+        const photos =
+            document.querySelectorAll(
+                ".photo img"
+            );
+
+
+        const viewer =
+            document.getElementById(
+                "photoViewer"
+            );
+
+
+        const viewerImage =
+            document.getElementById(
+                "viewerImage"
+            );
+
+
+        const closeViewer =
+            document.getElementById(
+                "closeViewer"
+            );
+
+
+        photos.forEach(
+            photo => {
+
+                photo.addEventListener(
+                    "click",
+                    () => {
+
+                        viewerImage.src =
+                            photo.src;
+
+                        viewer.classList.add(
+                            "active"
+                        );
+
+                        document.body.style.overflow =
+                            "hidden";
+
+                    }
+                );
+
+            }
+        );
+
+
+        function closePhotoViewer() {
+
+            viewer.classList.remove(
+                "active"
+            );
+
+            document.body.style.overflow =
+                "";
+
+        }
+
+
+        closeViewer.addEventListener(
+            "click",
+            closePhotoViewer
+        );
+
+
+        viewer.addEventListener(
+            "click",
+            event => {
+
+                if (
+                    event.target === viewer
+                ) {
+
+                    closePhotoViewer();
+
+                }
+
+            }
+        );
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    closePhotoViewer();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           UÇAN KALPLER
+        ========================= */
+
+        function createHeart() {
+
+            const heart =
+                document.createElement(
+                    "div"
+                );
+
+
+            heart.classList.add(
+                "floating-heart"
+            );
+
+
+            const hearts = [
+                "❤️",
+                "💕",
+                "💗",
+                "💖",
+                "💞"
+            ];
+
+
+            heart.innerText =
+                hearts[
+                    Math.floor(
+                        Math.random() *
+                        hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() *
+                100 +
+                "vw";
+
+
+            heart.style.fontSize =
+                (
+                    15 +
+                    Math.random() * 25
+                ) +
+                "px";
+
+
+            heart.style.animationDuration =
+                (
+                    3 +
+                    Math.random() * 3
+                ) +
+                "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(
+                () => {
+                    heart.remove();
+                },
+                7000
+            );
+
+        }
+
+
+        setInterval(
+            createHeart,
+            1200
+        );
+
+
+        /* =========================
+           SÜRPRİZE BAŞLA
+        ========================= */
+
+        const surpriseButton =
+            document.getElementById(
+                "surpriseButton"
+            );
+
+
+        surpriseButton.addEventListener(
+            "click",
+            () => {
+
+                /*
+                   Kullanıcı butona bastığı anda
+                   müzik başlar.
+                */
+
+                if (music.paused) {
+
+                    startMusic();
+
+                }
+
+
+                /* Kalp patlaması */
+
+                for (
+                    let i = 0;
+                    i < 15;
+                    i++
+                ) {
+
+                    setTimeout(
+                        createHeart,
+                        i * 90
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* İlk durum */
+        updateMusicButton();
+
+    </script>
+
+</body>
+
+</html>
